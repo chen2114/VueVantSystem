@@ -20,9 +20,11 @@ import {
   Coupon,
   CouponCell,
   CouponList,
+  Calendar,
   DatetimePicker,
   Dialog,
   Field,
+  Form,
   GoodsAction,
   Icon,
   ImagePreview,
@@ -89,9 +91,11 @@ Vue.use(ContactList)
 Vue.use(Coupon)
 Vue.use(CouponCell)
 Vue.use(CouponList)
+Vue.use(Calendar)
 Vue.use(DatetimePicker)
 Vue.use(Dialog)
 Vue.use(Field)
+Vue.use(Form)
 Vue.use(GoodsAction)
 Vue.use(Icon)
 Vue.use(ImagePreview)

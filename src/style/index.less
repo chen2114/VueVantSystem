@@ -1,0 +1,237 @@
+@import './param.less';
+@import './init.less';
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.tc {
+  text-align: center;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tr {
+  text-align: right;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.h50 {
+  height: 50%;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed !important;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  >* {
+    float: left;
+  }
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.f-wrap {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.f-vc {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.f-ac {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.f-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: auto auto;
+}
+
+.f-a-between {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.f-a-around {
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.ellipsis {
+  // 单行文本溢出的CSS核心样式
+  overflow: hidden;
+  text-overflow: ellipsis; //文本溢出显示省略号
+  white-space: nowrap; //文本不会换行
+}
+
+.multiple {
+  // 多行文本溢出的CSS核心样式，此方法只适用于的webkit的内核浏览器
+  overflow: hidden;
+  text-overflow: ellipsis; //文本溢出显示省略号
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.generate-font(40);
+
+.generate-font(@n, @i: 12) when (@i <= @n) {
+  .fs@{i} {
+    font-size: (@i / @base-font) * 1rem;
+  }
+
+  .l-h@{i} {
+    line-height: (@i / @base-font) * 1rem;
+  }
+
+  .generate-font(@n, (@i + 1));
+}
+
+.generate-box(40);
+
+.generate-box(@n, @i: 5) when (@i <= @n) {
+  .margin@{i} {
+    margin: (@i / @base-font) * 1rem;
+  }
+
+  .m-l@{i} {
+    margin-left: (@i / @base-font) * 1rem;
+  }
+
+  .m-t@{i} {
+    margin-top: (@i / @base-font) * 1rem;
+  }
+
+  .m-r@{i} {
+    margin-right: (@i / @base-font) * 1rem;
+  }
+
+  .m-b@{i} {
+    margin-bottom: (@i / @base-font) * 1rem;
+  }
+
+  .m-lr@{i} {
+    margin-left: (@i / @base-font) * 1rem;
+    margin-right: (@i / @base-font) * 1rem;
+  }
+  
+  .m-tb@{i} {
+    margin-top: (@i / @base-font) * 1rem;
+    margin-bottom: (@i / @base-font) * 1rem;
+  }
+
+  .padding@{i} {
+    padding: (@i / @base-font) * 1rem;
+  }
+
+  .p-l@{i} {
+    padding-left: (@i / @base-font) * 1rem;
+  }
+
+  .p-r@{i} {
+    padding-right: (@i / @base-font) * 1rem;
+  }
+
+  .p-t@{i} {
+    padding-top: (@i / @base-font) * 1rem;
+  }
+
+  .p-b@{i} {
+    padding-bottom: (@i / @base-font) * 1rem;
+  }
+
+  .p-lr@{i} {
+    padding-left: (@i / @base-font) * 1rem;
+    padding-right: (@i / @base-font) * 1rem;
+  }
+
+  .p-tb@{i} {
+    padding-top: (@i / @base-font) * 1rem;
+    padding-bottom: (@i / @base-font) * 1rem;
+  }
+
+  .generate-box(@n, (@i + 1));
+}
