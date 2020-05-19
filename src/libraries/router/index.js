@@ -4,7 +4,15 @@ import constantRoutes from './constantRoutes'
 import asyncRoutes from './asyncRoutes'
 import NProgress from 'nprogress' // 页面加载的进度条
 import 'nprogress/nprogress.css'
+import store from '@/libraries/store'
 import { SET_TOKEN } from '@/libraries/store/mutation-types'
+
+// 对Router原型链上的push、replace方法进行重写，解决控制台 Uncaught (in promise) 报错
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
+}
 
 Vue.use(Router)
 
@@ -45,7 +53,21 @@ router.beforeEach(async (to, from, next) => {
       })
       NProgress.done()
     } else {
-      next()
+      if (store.getters.userInfo.role) {
+        next()
+      } else {
+        try {
+          await store.dispatch('getUserInfo')
+          // 设置replace:true，这样导航就不会留下历史记录
+          next({ ...to, replace: true })
+        } catch (error) {
+          await store.dispatch('resetToken')
+          next({
+            path: '/login'
+          })
+          NProgress.done()
+        }
+      }
     }
   } else {
     next()

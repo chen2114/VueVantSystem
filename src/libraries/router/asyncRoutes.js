@@ -20,24 +20,28 @@ const layout = () =>
 const home = () =>
   import(/* webpackChunkName: "home" */ '@/views/home/index')
 
-export const componentMap = {
-  layout,
-  // 主页
-  home
-}
+// 图标
+const icons = () =>
+  import(/* webpackChunkName: "icons" */ '@/views/icons/index')
+
+// 用户
+const user = () =>
+  import(/* webpackChunkName: "user" */ '@/views/user/index')
+
+// 表单
+const form = () =>
+  import(/* webpackChunkName: "form" */ '@/views/form/index')
 
 export default [
   {
     path: '/',
     redirect: '/home',
     component: layout,
-    componentName: 'layout',
     children: [
       {
         name: 'home',
         path: 'home',
         component: home,
-        componentName: 'home',
         meta: {
           label: '主页',
           icon: 'dashboard',
@@ -45,6 +49,50 @@ export default [
         }
       }
     ]
+  },
+  {
+    path: '/icons',
+    redirect: '/icons/index',
+    component: layout,
+    children: [
+      {
+        name: 'icons',
+        path: 'index',
+        component: icons,
+        meta: {
+          label: '图标',
+          icon: 'icon',
+          requireAuth: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/user',
+    redirect: '/user/index',
+    component: layout,
+    children: [
+      {
+        name: 'user',
+        path: 'index',
+        component: user,
+        meta: {
+          label: '用户',
+          icon: 'user',
+          requireAuth: true
+        }
+      }
+    ]
+  },
+  {
+    name: 'form',
+    path: '/form',
+    component: form,
+    hidden: true,
+    meta: {
+      label: '表单',
+      requireAuth: true
+    }
   },
   { // 注意：404 页面一定要最后加载，否则后面的所以页面都会被拦截到 404
     path: '*',

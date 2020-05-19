@@ -160,11 +160,11 @@
 
 .generate-font(@n, @i: 12) when (@i <= @n) {
   .fs@{i} {
-    font-size: (@i / @base-font) * 1rem;
+    font-size: @i * 1px;
   }
 
   .l-h@{i} {
-    line-height: (@i / @base-font) * 1rem;
+    line-height: @i * 1px;
   }
 
   .generate-font(@n, (@i + 1));
@@ -174,63 +174,63 @@
 
 .generate-box(@n, @i: 5) when (@i <= @n) {
   .margin@{i} {
-    margin: (@i / @base-font) * 1rem;
+    margin: @i * 1px;
   }
 
   .m-l@{i} {
-    margin-left: (@i / @base-font) * 1rem;
+    margin-left: @i * 1px;
   }
 
   .m-t@{i} {
-    margin-top: (@i / @base-font) * 1rem;
+    margin-top: @i * 1px;
   }
 
   .m-r@{i} {
-    margin-right: (@i / @base-font) * 1rem;
+    margin-right: @i * 1px;
   }
 
   .m-b@{i} {
-    margin-bottom: (@i / @base-font) * 1rem;
+    margin-bottom: @i * 1px;
   }
 
   .m-lr@{i} {
-    margin-left: (@i / @base-font) * 1rem;
-    margin-right: (@i / @base-font) * 1rem;
+    margin-left: @i * 1px;
+    margin-right: @i * 1px;
   }
   
   .m-tb@{i} {
-    margin-top: (@i / @base-font) * 1rem;
-    margin-bottom: (@i / @base-font) * 1rem;
+    margin-top: @i * 1px;
+    margin-bottom: @i * 1px;
   }
 
   .padding@{i} {
-    padding: (@i / @base-font) * 1rem;
+    padding: @i * 1px;
   }
 
   .p-l@{i} {
-    padding-left: (@i / @base-font) * 1rem;
+    padding-left: @i * 1px;
   }
 
   .p-r@{i} {
-    padding-right: (@i / @base-font) * 1rem;
+    padding-right: @i * 1px;
   }
 
   .p-t@{i} {
-    padding-top: (@i / @base-font) * 1rem;
+    padding-top: @i * 1px;
   }
 
   .p-b@{i} {
-    padding-bottom: (@i / @base-font) * 1rem;
+    padding-bottom: @i * 1px;
   }
 
   .p-lr@{i} {
-    padding-left: (@i / @base-font) * 1rem;
-    padding-right: (@i / @base-font) * 1rem;
+    padding-left: @i * 1px;
+    padding-right: @i * 1px;
   }
 
   .p-tb@{i} {
-    padding-top: (@i / @base-font) * 1rem;
-    padding-bottom: (@i / @base-font) * 1rem;
+    padding-top: @i * 1px;
+    padding-bottom: @i * 1px;
   }
 
   .generate-box(@n, (@i + 1));

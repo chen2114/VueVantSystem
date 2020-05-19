@@ -30,7 +30,7 @@
   </div>
 </template>
 <script>
-import { SET_TOKEN } from '@/libraries/store/mutation-types'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Login',
@@ -41,9 +41,14 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['login']),
     onSubmit (data) {
-      this.$ls.set(SET_TOKEN, this.username)
-      this.$router.push('/')
+      const url = '/login'
+      const payload = {
+        account: this.username,
+        password: this.password
+      }
+      this.login({ url, payload })
     }
   }
 }

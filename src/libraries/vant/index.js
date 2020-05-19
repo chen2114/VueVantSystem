@@ -26,7 +26,10 @@ import {
   Field,
   Form,
   GoodsAction,
+  Grid,
+  GridItem,
   Icon,
+  Image as VanImage,
   ImagePreview,
   Info,
   Lazyload,
@@ -61,6 +64,7 @@ import {
   SwipeItem,
   Switch,
   SwitchCell,
+  Skeleton,
   Tab,
   Tabbar,
   TabbarItem,
@@ -97,7 +101,10 @@ Vue.use(Dialog)
 Vue.use(Field)
 Vue.use(Form)
 Vue.use(GoodsAction)
+Vue.use(Grid)
+Vue.use(GridItem)
 Vue.use(Icon)
+Vue.use(VanImage)
 Vue.use(ImagePreview)
 Vue.use(Info)
 Vue.use(Lazyload)
@@ -132,6 +139,7 @@ Vue.use(SwipeCell)
 Vue.use(SwipeItem)
 Vue.use(Switch)
 Vue.use(SwitchCell)
+Vue.use(Skeleton)
 Vue.use(Tab)
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
