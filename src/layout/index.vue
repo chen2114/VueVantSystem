@@ -1,6 +1,8 @@
 <template>
   <div class="layout">
-    <router-view />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
     <van-tabbar route>
       <template v-for="(item, index) in asyncRoutes">
         <van-tabbar-item
