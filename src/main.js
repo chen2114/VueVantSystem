@@ -7,6 +7,7 @@ import store from './libraries/store'
 
 import { ICONS_MAP } from './libraries/store/mutation-types'
 
+import 'normalize.css' // css样式初始化
 import 'lib-flexible' // 用于设置 rem 基准值
 import './libraries/mock' // mock 随机数据
 import './libraries/vant' // 引入 vant
