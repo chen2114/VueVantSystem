@@ -14,7 +14,7 @@ module.exports = {
   */
   publicPath: './',
   outputDir: 'dist', // 生成文件的目录名称
-  lintOnSave: process.env.NODE_ENV === 'development', // 是否关闭eslint
+  lintOnSave: process.env.NODE_ENV === 'development', // 是否开启eslint
   productionSourceMap: !(env === 'production'),
   chainWebpack: config => {
     if (env === 'production') {
