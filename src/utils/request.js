@@ -65,5 +65,5 @@ export const httpGet = (url, payload) => {
 }
 
 export const httpPost = (url, payload) => {
-  return instance.poat(url, payload)
+  return instance.post(url, payload)
 }
